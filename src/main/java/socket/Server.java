@@ -1,3 +1,5 @@
+package socket;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,7 +20,7 @@ public class Server {
         System.out.println("服务器准备就绪");
         System.out.println("服务端信息：地址|" + serverSocket.getInetAddress() + " 端口号|" + serverSocket.getLocalPort());
         for (; ; ) {
-            //得到客户端
+            //接受一个客户端连接，是阻塞操作
             Socket client = serverSocket.accept();
             //客户端构建异步线程
             ClientHandler clientHandler = new ClientHandler(client);
